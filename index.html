@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-icons-font@v7/font/simple-icons.min.css"
+    />
+
+    <title>Portfolio - Graphic Designer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 1rem 0;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #6c5ce7;
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      section:first-of-type {
+        margin-top: 60px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #2d3436;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #2d3436;
+      }
+
+      /* Hero Section */
+      #home {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #home::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: -100px;
+        right: -100px;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      #home::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        bottom: -50px;
+        left: -50px;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        max-width: 1200px;
+        padding: 0 2rem;
+        z-index: 1;
+      }
+
+      .hero-content {
+        text-align: left;
+      }
+
+      .hero-content h1 {
+        color: white;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        animation: slideInLeft 1.2s ease-out;
+      }
+
+      .hero-content .cta-button {
+        animation: slideInLeft 1.4s ease-out;
+      }
+
+      .hero-image {
+        position: relative;
+        animation: slideInRight 1s ease-out;
+      }
+
+      .hero-image-container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .hero-image-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50% 40% 60% 50%;
+        animation: morph 8s ease-in-out infinite;
+      }
+
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 50% 40% 60% 50%;
+        }
+        50% {
+          border-radius: 40% 60% 50% 40%;
+        }
+      }
+
+      .profile-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* About Section */
+      #about {
+        background: #f8f9fa;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1rem;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .skill-tag {
+        background: #667eea;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Portfolio Section */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+        display: block;
+        background: #f8f9fa;
+        padding: 0.5rem;
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        padding: 2rem 1rem 1rem;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Services Section */
+      #services {
+        background: #f8f9fa;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .service-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card h3 {
+        margin-bottom: 1rem;
+        color: #667eea;
+      }
+      .icon svg {
+        width: 30px;
+        color: #111; /* change icon color */
+      }
+
+      /* Contact Section */
+      #contact {
+        background: white;
+      }
+
+      .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 0.8rem;
+        border: 2px solid #dfe6e9;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .submit-button {
+        padding: 1rem 2rem;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .submit-button:hover {
+        background: #5f4dd1;
+      }
+
+      .contact-info {
+        margin-top: 3rem;
+        text-align: center;
+      }
+
+      .contact-info p {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        color: #667eea;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #5f4dd1;
+      }
+
+      /* Footer */
+      footer {
+        background: #2d3436;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero-image-container {
+          width: 300px;
+          height: 300px;
+        }
+
+        .profile-image {
+          width: 250px;
+          height: 250px;
+        }
+
+        nav ul {
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-content p {
+          font-size: 1.2rem;
+        }
+
+        .design-elements {
+          transform: scale(0.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>Michael Kesis</h1>
+          <p>Graphic Designer & Photographer</p>
+          <a href="#portfolio" class="cta-button">View My Work</a>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-container">
+            <div class="hero-image-bg"></div>
+            <!-- Replace this SVG with actual image: <img src="your-image.jpg" alt="Jane Doe" class="profile-image"> -->
+            <svg class="profile-image" viewBox="0 0 400 400">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop
+                    offset="0%"
+                    style="stop-color: #667eea; stop-opacity: 1"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #764ba2; stop-opacity: 1"
+                  />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="200"
+                cy="200"
+                r="200"
+                fill="url(#grad1)"
+                opacity="0.2"
+              />
+              <circle cx="200" cy="150" r="60" fill="white" opacity="0.9" />
+              <ellipse
+                cx="200"
+                cy="280"
+                rx="100"
+                ry="120"
+                fill="white"
+                opacity="0.9"
+              />
+              <text
+                x="200"
+                y="320"
+                text-anchor="middle"
+                fill="#667eea"
+                font-size="16"
+                font-weight="bold"
+              >
+                image
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Hi! I'm Kesis, a passionate graphic designer with over 5 years of
+            experience creating compelling visual solutions for brands and
+            businesses.
+          </p>
+          <p>
+            I specialize in transforming ideas into stunning visual designs that
+            communicate effectively and leave lasting impressions.
+          </p>
+          <p>
+            My approach combines creativity with strategic thinking to deliver
+            designs that not only look great but also achieve your business
+            goals.
+          </p>
+          <div class="skills">
+            <span class="skill-tag">Adobe Photoshop</span>
+            <span class="skill-tag">Illustrator</span>
+            <span class="skill-tag">InDesign</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Brand Identity</span>
+            <span class="skill-tag">UI/UX Design</span>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="design-elements">
+            <div class="design-tool tool1">
+              <div class="tool-icon">
+                <i
+                  class="si si-adobephotoshop"
+                  style="font-size: 30px; color: #31a8ff"
+                ></i>
+              </div>
+              <div class="tool-name">Photoshop</div>
+            </div>
+            <div class="design-tool tool2">
+              <div class="tool-icon">
+                <i
+                  class="si si-adobeillustrator"
+                  style="font-size: 30px; color: #ff9a00"
+                ></i>
+              </div>
+              <div class="tool-name">Illustrator</div>
+            </div>
+            <div class="design-tool tool3">
+              <div class="tool-icon">
+                <i
+                  class="si si-figma"
+                  style="font-size: 30px; color: #f24e1e"
+                ></i>
+              </div>
+              <div class="tool-name">Figma</div>
+            </div>
+            <div class="design-tool tool4">
+              <div class="tool-icon">
+                <i
+                  class="si si-adobeindesign"
+                  style="font-size: 30px; color: #ff3366"
+                ></i>
+              </div>
+              <div class="tool-name">InDesign</div>
+            </div>
+            <div class="center-circle">
+              <span>5+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>My Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="KINGLY TOP NATION FINAL CONCEPT-01.jpg" alt="logo" />
+          <div class="portfolio-overlay">
+            <h3>Brand Identity Design</h3>
+            <p>Complete branding solution for tech startup</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="DOMISPERES.jpg" alt="logo" />
+          <div class="portfolio-overlay">
+            <h3>Event Poster</h3>
+            <p>Creative poster for music festival</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img
+            src="KUSH CLASSIC OUTFITS LOGO_LOGO PRESENTATION.jpg"
+            alt="logo"
+          />
+          <div class="portfolio-overlay">
+            <h3>Mobile App UI</h3>
+            <p>User interface for fitness tracking app</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="vetposter copy.jpg" alt="logo" />
+          <div class="portfolio-overlay">
+            <h3>Product Packaging</h3>
+            <p>Eco-friendly packaging design for cosmetics</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="JEN FATHERS DAY.jpg" alt="logo" />
+          <div class="portfolio-overlay">
+            <h3>Logo Collection</h3>
+            <p>Various logo designs for different clients</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="JENPOSTER6 copy.jpg" alt="logo" />
+          <div class="portfolio-overlay">
+            <h3>Social Media Graphics</h3>
+            <p>Instagram campaign for fashion brand</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              <path d="M14 17l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>
+            Creating cohesive brand identities that resonate with your target
+            audience and stand out in the market.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="icon">
+            <svg
+              class="logo-icon"
+              width="40"
+              height="50"
+              viewBox="0 0 64 76"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Logo"
+            >
+              <path
+                d="M32 2 L58 14 v22 c0 18-12 30-26 38 C18 68 6 56 6 36 V14 L32 2 Z"
+                fill="currentColor"
+              />
+              <circle cx="32" cy="34" r="8" fill="#fff" opacity="0.98" />
+            </svg>
+          </div>
+          <h3>Logo Design</h3>
+          <p>
+            Crafting unique and memorable logos that perfectly represent your
+            brand's identity and values.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Packaging Design</h3>
+          <p>
+            Innovative packaging solutions that attract customers and enhance
+            product appeal on shelves.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i
+              class="si si-adobephotoshop"
+              style="font-size: 40px; color: #000000"
+            ></i>
+          </div>
+          <h3>Social Media Graphics</h3>
+          <p>
+            Eye-catching graphics optimized for social media platforms to boost
+            your online presence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="contact-content">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <p><strong>Email:</strong> Michael@gmail.com</p>
+          <p><strong>Phone:</strong> + 254 111 536 154</p>
+          <p><strong>Location:</strong> Nyeri , Kenya</p>
+          <div class="social-links">
+            <a href="#" title="Instagram"
+              ><i
+                class="si si-instagram"
+                style="font-size: 30px; color: #e4405f"
+              ></i>
+            </a>
+            <a href="#" title="Behance"
+              ><i
+                class="si si-behance"
+                style="font-size: 30px; color: #1769ff"
+              ></i>
+            </a>
+            <a href="#" title="LinkedIn"
+              ><i
+                class="si si-linkedin"
+                style="font-size: 30px; color: #0a66c2"
+              ></i>
+            </a>
+            <a href="#" title="Dribbble"
+              ><i
+                class="si si-dribbble"
+                style="font-size: 30px; color: #ea4c89"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Michael Kesis. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Form submission handler
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for your message! I will get back to you soon.");
+          this.reset();
+        });
+
+      // Add active state to navigation on scroll
+      window.addEventListener("scroll", () => {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").slice(1) === current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
