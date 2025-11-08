@@ -182,6 +182,24 @@
           border-radius: 40% 60% 50% 40%;
         }
       }
+      .profile-wrapper {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding: 5px; /* creates the colored ring */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover; /* ensures image fills circle */
+      }
 
       .profile-image {
         position: absolute;
@@ -304,8 +322,8 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-        color: white;
+        background: linear-gradient(to top, #764ba2, transparent);
+        color: #ffffff;
         padding: 2rem 1rem 1rem;
         transform: translateY(100%);
         transition: transform 0.3s;
@@ -528,47 +546,9 @@
         <div class="hero-image">
           <div class="hero-image-container">
             <div class="hero-image-bg"></div>
-            <!-- Replace this SVG with actual image: <img src="your-image.jpg" alt="Jane Doe" class="profile-image"> -->
-            <svg class="profile-image" viewBox="0 0 400 400">
-              <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop
-                    offset="0%"
-                    style="stop-color: #667eea; stop-opacity: 1"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: #764ba2; stop-opacity: 1"
-                  />
-                </linearGradient>
-              </defs>
-              <circle
-                cx="200"
-                cy="200"
-                r="200"
-                fill="url(#grad1)"
-                opacity="0.2"
-              />
-              <circle cx="200" cy="150" r="60" fill="white" opacity="0.9" />
-              <ellipse
-                cx="200"
-                cy="280"
-                rx="100"
-                ry="120"
-                fill="white"
-                opacity="0.9"
-              />
-              <text
-                x="200"
-                y="320"
-                text-anchor="middle"
-                fill="#667eea"
-                font-size="16"
-                font-weight="bold"
-              >
-                image
-              </text>
-            </svg>
+            <div class="profile-wrapper">
+              <img src="profile.jpg" alt="Profile" class="profile-img" />
+            </div>
           </div>
         </div>
       </div>
@@ -655,15 +635,21 @@
         <div class="portfolio-item">
           <img src="KINGLY TOP NATION FINAL CONCEPT-01.jpg" alt="logo" />
           <div class="portfolio-overlay">
-            <h3>Brand Identity Design</h3>
-            <p>Complete branding solution for tech startup</p>
+            <h3>Combination Logo</h3>
+            <p>
+              A combination logo uses both a symbol and the brand name together.
+              .
+            </p>
           </div>
         </div>
         <div class="portfolio-item">
           <img src="DOMISPERES.jpg" alt="logo" />
           <div class="portfolio-overlay">
-            <h3>Event Poster</h3>
-            <p>Creative poster for music festival</p>
+            <h3>Logo</h3>
+            <p>
+              A clean, modern logo representing creativity and forward-thinking
+              identity.
+            </p>
           </div>
         </div>
         <div class="portfolio-item">
@@ -672,29 +658,42 @@
             alt="logo"
           />
           <div class="portfolio-overlay">
-            <h3>Mobile App UI</h3>
-            <p>User interface for fitness tracking app</p>
+            <h3>Monogram Logo</h3>
+            <p>
+              A monogram logo is created using one or more brand initials
+              combined into a unique symbol.
+            </p>
           </div>
         </div>
         <div class="portfolio-item">
           <img src="vetposter copy.jpg" alt="logo" />
           <div class="portfolio-overlay">
-            <h3>Product Packaging</h3>
-            <p>Eco-friendly packaging design for cosmetics</p>
+            <h3>Flyer Design</h3>
+            <p>
+              A visually striking poster designed to capture attention and
+              clearly communicate the key message at a glance.
+            </p>
           </div>
         </div>
         <div class="portfolio-item">
           <img src="JEN FATHERS DAY.jpg" alt="logo" />
           <div class="portfolio-overlay">
-            <h3>Logo Collection</h3>
-            <p>Various logo designs for different clients</p>
+            <h3>Flyer Design</h3>
+            <p>
+              A visually striking poster designed to capture attention and
+              clearly communicate the key message at a glance.Various logo
+              designs for different clients
+            </p>
           </div>
         </div>
         <div class="portfolio-item">
           <img src="JENPOSTER6 copy.jpg" alt="logo" />
           <div class="portfolio-overlay">
-            <h3>Social Media Graphics</h3>
-            <p>Instagram campaign for fashion brand</p>
+            <h3>Flyer Design</h3>
+            <p>
+              A visually striking poster designed to capture attention and
+              clearly communicate the key message at a glance.
+            </p>
           </div>
         </div>
       </div>
@@ -797,7 +796,7 @@
           <button type="submit" class="submit-button">Send Message</button>
         </form>
         <div class="contact-info">
-          <p><strong>Email:</strong> Michael@gmail.com</p>
+          <p><strong>Email:</strong> kiborommichael@gmail.com</p>
           <p><strong>Phone:</strong> + 254 111 536 154</p>
           <p><strong>Location:</strong> Nyeri , Kenya</p>
           <div class="social-links">
@@ -807,7 +806,7 @@
                 style="font-size: 30px; color: #e4405f"
               ></i>
             </a>
-            <a href="#" title="Behance"
+            <a href="https://www.behance.net/michaelkiborom1" title="Behance"
               ><i
                 class="si si-behance"
                 style="font-size: 30px; color: #1769ff"
